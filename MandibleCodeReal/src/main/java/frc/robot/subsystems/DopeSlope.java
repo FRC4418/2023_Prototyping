@@ -9,8 +9,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 public class DopeSlope extends SubsystemBase {
   /** Creates a new DopeSlope. */
-  final WPI_TalonFX leftMotor = new WPI_TalonFX(5);
-  final WPI_TalonFX rightMotor = new WPI_TalonFX(6);
+  final WPI_TalonFX leftMotor = new WPI_TalonFX(1);
+  final WPI_TalonFX rightMotor = new WPI_TalonFX(4);
 
   public DopeSlope() {
     leftMotor.configFactoryDefault();
@@ -18,8 +18,8 @@ public class DopeSlope extends SubsystemBase {
     leftMotor.setInverted(true);
   }
   public void FunnyMethod(Number yval){
-    leftMotor.set((double)yval);
-    rightMotor.set((double)yval);
+    leftMotor.set((double)yval/2);
+    rightMotor.set((double)yval/2);
   }
 
   @Override

@@ -12,8 +12,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArmsOpen;
 import frc.robot.commands.IntakePull;
 import frc.robot.commands.IntakePush;
+import frc.robot.commands.dopeSlopeControl;
 import frc.robot.constants.Ports;
 import frc.robot.subsystems.Arms;
+import frc.robot.subsystems.DopeSlope;
 import frc.robot.subsystems.Intake;
 
 /**
@@ -32,12 +34,18 @@ public class RobotContainer {
 
   private final IntakePull m_autocommand = new IntakePull(m_intake);
 
+  private final DopeSlope dopeslope = new DopeSlope();
+
   public final AutoGamepad driver = new AutoGamepad(Ports.Gamepad.DRIVER);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    configureDefaultCommands();
+  }
+  private void configureDefaultCommands() {
+    dopeslope.setDefaultCommand(new dopeSlopeControl(dopeslope, driver));
   }
 
   /**
@@ -51,6 +59,7 @@ public class RobotContainer {
     driver.getTopButton().whileTrue(new IntakePull(m_intake)); 
     driver.getBottomButton().whileTrue(new IntakePush(m_intake));
   }
+  
 //https://docs.google.com/drawings/d/1e4qhpc7L0whN3PPnOP-MKl21IsEmKWJkSbZKH311heM/edit?usp=sharing
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
