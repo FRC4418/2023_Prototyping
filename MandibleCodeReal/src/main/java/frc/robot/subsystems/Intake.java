@@ -23,6 +23,11 @@ public class Intake extends SubsystemBase {
     wheel2Motor.set(-(double)speed);
   }
 
+  public void intakeExtend(){
+    wheel1Motor.set(1d);
+    wheel2Motor.set(1d);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
