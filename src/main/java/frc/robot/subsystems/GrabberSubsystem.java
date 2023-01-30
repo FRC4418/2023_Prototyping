@@ -20,7 +20,7 @@ public class GrabberSubsystem extends SubsystemBase {
   }
 
   public void spin(int speed){
-    grabberMotor.set((double)speed);
+    grabberMotor.set((double)speed/0.5);
   }
 
   public void stop(){
