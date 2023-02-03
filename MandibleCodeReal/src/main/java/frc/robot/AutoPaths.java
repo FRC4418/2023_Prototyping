@@ -4,13 +4,12 @@
 
 package frc.robot;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.pathplanner.lib.PathConstraints;
 import com.pathplanner.lib.PathPlanner;
 import com.pathplanner.lib.PathPlannerTrajectory;
-import com.pathplanner.lib.PathPlannerTrajectory.PathPlannerState;
 
 import frc.robot.Constants.AutoConstants;
 
@@ -25,16 +24,12 @@ public class AutoPaths {
      * and takes the name of the path file created
      * in the PathPlanner app with the required path constraints
     */
-    PathPlannerTrajectory p0 = PathPlanner.loadPath("P0", 6, 3);
-    PathPlannerState initialState = p0.getInitialState();
-
 
     // Auto 1 Path
-    public static ArrayList<PathPlannerTrajectory> pathGroupAuto1 = (ArrayList<PathPlannerTrajectory>) PathPlanner //they didnt have to cast?
-    .loadPathGroup(
-        "Auto1",
-        new PathConstraints(
-        AutoConstants.kMaxSpeedMetersPerSecond, //Velocity
-        AutoConstants.kMaxAccelerationMetersPerSecondSquared)); //Acceleration
+    public static List pathGroupAuto1 = PathPlanner
+.loadPathGroup("Auto1",
+new PathConstraints(
+AutoConstants.kMaxSpeedMetersPerSecond, //Velocity
+AutoConstants.kMaxAccelerationMetersPerSecondSquared)); //Acceleration
 
 }

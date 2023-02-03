@@ -30,12 +30,12 @@ public class DriveSubsystem extends SubsystemBase {
   public DifferentialDriveKinematics kinematics = new DifferentialDriveKinematics(DriveConstants.kTrackwidthMeters);
 
   // The motors on the left side of the drive.
-  final WPI_TalonFX leftFrontMotor = new WPI_TalonFX(3);
-  final WPI_TalonFX leftBackMotor = new WPI_TalonFX(2);
+  final WPI_TalonFX leftFrontMotor = new WPI_TalonFX(2);
+  final WPI_TalonFX leftBackMotor = new WPI_TalonFX(3);
   MotorControllerGroup m_leftMotors = new MotorControllerGroup(leftFrontMotor, leftBackMotor);
 
-  final WPI_TalonFX rightFrontMotor = new WPI_TalonFX(4);
-  final WPI_TalonFX rightBackMotor = new WPI_TalonFX(5);
+  final WPI_TalonFX rightFrontMotor = new WPI_TalonFX(5);
+  final WPI_TalonFX rightBackMotor = new WPI_TalonFX(6);
   MotorControllerGroup m_rightMotors = new MotorControllerGroup(rightFrontMotor, rightBackMotor);
 
   // The robot's drive
